@@ -71,38 +71,42 @@ function Menu() {
   return (
     <menu className="menu">
       <h2>Our Menu</h2>
-      <Pizza
-        name="Pizza Spinaci"
-        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
-        photoName="pizzas/spinaci.jpg"
-        price= {10}
-        />
-      <Pizza
-        name="Pizza Margherita"
-        ingredients="Tomato, mozarella, and pepperoni"
-        photoName="pizzas/Margherita.jpg"
-        price= {15}
-      />
+      <ul className="pizzas">
+        {pizzaData.map((pizza) => (
+          <Pizza pizzaObj={pizza} key={pizza.name} />
+        ))}
+      </ul>
     </menu>
   );
 }
 
 function Pizza(props) {
   return (
-    <div>
-      <img src={props.photoName} alt={props.name}></img>
-      <h3>{props.name}</h3>
-      <p>{props.ingredients}</p>
-    </div>
+    <li className="pizza">
+      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name}></img>
+      <div>
+        <h3>{props.pizzaObj.name}</h3>
+        <p>{props.pizzaObj.ingredients}</p>
+        <span>{props.pizzaObj.price}</span>
+      </div>
+    </li>
   );
 }
 
 function Footer() {
   const hour = new Date().getHours();
+  const openHour = 10;
+  const closeHour = 8;
   return (
     <footer className="footer">
-      {new Date().toLocaleTimeString()}.{" "}
-      {hour === 15 ? "We'r Close now" : "We'r Open Now."}
+      <div className="order">
+        <p>
+          We're open bettween {openHour}:00 and {closeHour}:00 PM Or order
+          Online.
+        </p>
+        <p>Now the time is  {new Date().toLocaleTimeString()}.{" "}</p>
+        <button className="btn">Oder Now</button>
+      </div>
     </footer>
   );
   // return React.createElement("footer", null , "we'r open now.");
