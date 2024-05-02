@@ -128,7 +128,7 @@ function Pizza(props) {
 function Footer() {
   const hour = new Date().getHours();
   const openHour = 10;
-  const closeHour = 8;
+  const closeHour = 22;
   const isOpen = hour >= openHour && hour <= closeHour;
   return (
     <footer className="footer">
@@ -152,8 +152,8 @@ function Open(props) {
   return (
     <div className="order">
       <p>
-        We're Open Until {props.openHour}:00 AM and {props.closeHour}
-        :00 PM{" "}
+        We're Open Until {props.openHour}:00 and {props.closeHour}
+        :00 
       </p>
       <button className="btn">Oder Now</button>
     </div>
