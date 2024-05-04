@@ -84,7 +84,6 @@ function Menu() {
 
       {numPizze > 0 ? (
         <>
-          {" "}
           <p>
             Authentic Italian culsine. 6 creative dishes to chose from. All from
             our stone oven, all organic, all delidious
